@@ -36,9 +36,20 @@ spolServices
 		return null;
 	};
 
+	var getUsernameById = function(id) {
+		var uid = id.split(":")[0];
+		for (var i = 0; i < _validLogins.length; i++) {
+			var testLogin = _validLogins[i];
+			if (testLogin.id == uid) {
+				return testLogin.username;
+			}
+		}
+		return null;
+	};
+
 	var getLoggedInId = function() {
 		if (!loggedInId) return null;
-		return loggedInId + "" + getFingerprint();
+		return loggedInId + ":" + getFingerprint();
 	};
 
 	var redirectLogin = function() {
