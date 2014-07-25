@@ -24,14 +24,17 @@ spolApp.config(['$routeProvider', '$httpProvider', '$locationProvider', '$goConn
 
         $routeProvider
             // homepage url - searcher
-            .when('/dashboard', {
-                templateUrl: templates_paths.page_dashboard
+            .when('/tickets', {
+                templateUrl: 'templates/tickets/list.html'
             })
-            .when('/login', {
-                templateUrl: templates_paths.page_login
+            .when('/ticket/add', {
+                templateUrl: 'templates/tickets/add.html'
+            })
+            .when('/ticket/show/:id', {
+                templateUrl: 'templates/tickets/show.html'
             })
             .otherwise({
-                redirectTo: '/login'
+                redirectTo: '/tickets'
             });
 
         // change default content-type for $http.post request

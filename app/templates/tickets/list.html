@@ -1,0 +1,19 @@
+<div data-ng-controller="TicketsController">
+    <div class="row">
+        <div class="col-md-6" data-ng-repeat="ticket in tickets">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h3 class="panel-title"><a href="/#!/tickets/show/{{ ticket.id }}">{{ ticket.title}}</a></h3>
+                </div>
+                <div class="panel-body">
+                    <p>{{ ticket.description }}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <a href="/#!/ticket/add">Dodaj zgłoszenie</a>
+        </div>
+    </div>
+</div>
