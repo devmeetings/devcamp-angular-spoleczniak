@@ -1,37 +1,38 @@
 <div data-ng-controller="TicketShowController">
-    <div class="row">
-        <div class="col-md-12">
-            <h1>Zgłoszenie #{{ ticket.id }}</h1>
+    <div data-ng-repeat="item in ticket">
+        <div class="row">
+            <div class="col-md-12">
+                <h1>Zgłoszenie #{{ item.idticket }}</h1>
+            </div>
         </div>
-    </div>
-    <div class="row">
-        <div class="col-md-12">
-            <form class="form-horizontal">
-                <div class="form-group">
-                    <label class="col-md-3 control-label">Tytuł</label>
-                    <div class="col-md-7 form-control-static">
-                        {{ ticket.title }}
+        <div class="row">
+            <div class="col-md-12">
+                <form class="form-horizontal">
+                    <div class="form-group">
+                        <label class="col-md-3 control-label">Tytuł</label>
+                        <div class="col-md-7 form-control-static">
+                            {{ item.title }}
+                        </div>
                     </div>
-                </div>
-                <div class="form-group">
-                    <label class="col-md-3 control-label">Ulica</label>
-                    <div class="col-md-7 form-control-static">
-                        {{ ticket.place }}
+                    <div class="form-group">
+                        <label class="col-md-3 control-label">Ulica</label>
+                        <div class="col-md-7 form-control-static">
+                            {{ item.place }}
+                        </div>
                     </div>
-                </div>
-                <div class="form-group">
-                    <label class="col-md-3 control-label">Opis zgłoszenia</label>
-                    <div class="col-md-7 form-control-static">
-                        {{ ticket.description }}
+                    <div class="form-group">
+                        <label class="col-md-3 control-label">Opis zgłoszenia</label>
+                        <div class="col-md-7 form-control-static">
+                            {{ item.description }}
+                        </div>
                     </div>
-                </div>
-                <div class="form-group">
-                    <div class="col-md-10 text-right">
-                        <a href="/#!/tickets" class="btn btn-link">powrót do listy</a>
-                        <a href="/#!/tickets/add" data-ng-click="addNewTicket($event)" class="btn btn-primary">dodaj</a>
+                    <div class="form-group">
+                        <div class="col-md-10 text-right">
+                            <a href="/#!/tickets" class="btn btn-link">powrót do listy</a>
+                        </div>
                     </div>
-                </div>
-            </form>
+                </form>
+            </div>
         </div>
     </div>
 </div>

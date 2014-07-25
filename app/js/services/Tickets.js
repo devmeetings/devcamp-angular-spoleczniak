@@ -3,7 +3,7 @@ spolServices.factory('Tickets', ['$goKey', '$goQuery', '$location', function ($g
     var new_ticket;
 
     new_ticket = {
-        id: '',           // id zgłoszenia
+        idticket: '',           // id zgłoszenia
         title: '',        // tytuł zgłoszenia
         description: '',  // opis zgłoszenia
         place: '',        // miejsce zgłoszenia
@@ -22,14 +22,14 @@ spolServices.factory('Tickets', ['$goKey', '$goQuery', '$location', function ($g
 
         addTicket: function (data) {
             this.getTickets();
-            data.id = new Date().getTime();
+            data.idticket = new Date().getTime();
             this.tickets.$add(data).then(function () {
                 $location.path('/tickets');
             });
         },
 
         getTicket: function (id) {
-            this.ticket = $goQuery('tickets', { id: parseInt(id, 10) }, { limit: 1 });
+            this.ticket = $goQuery('tickets', { idticket: parseInt(id, 10) }, { limit: 1 });
             this.ticket.$sync();
             return this.ticket;
         },

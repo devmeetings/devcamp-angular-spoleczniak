@@ -23,10 +23,13 @@ spolControllers.controller('TicketAddController', ['$scope', '$rootScope', 'Tick
     }]);
 
 
-spolControllers.controller('TicketShowController', ['$scope', '$rootScope', 'Tickets', '$routeParams',
-    function ($scope, $rootScope, Tickets, $routeParams) {
+spolControllers.controller('TicketShowController', ['$scope', '$rootScope', 'Tickets', '$routeParams', '$goQuery',
+    function ($scope, $rootScope, Tickets, $routeParams, $goQuery) {
         'use strict';
 
         // utworzenie pustego obiektu nowego zgłoszenia
         $scope.ticket = Tickets.getTicket($routeParams.id);
+
+
+
     }]);
