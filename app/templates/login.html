@@ -1,0 +1,13 @@
+<form ng-controller="loginController">
+    <div ng-show="state==0 || state==2">
+        <input ng-model="loginUser">
+        <br/>
+        <input ng-model="loginPassword" type="password">
+        <br/>
+        <div ng-show="state==2">Błędne dane, spróbuj jeszcze raz</div>
+        <button ng-click="doLogin()">Zaloguj</button>
+    </div>
+    <div ng-show="state==1">
+		Zalogowano pomyślnie!
+    </div>
+</form>
