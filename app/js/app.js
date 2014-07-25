@@ -51,5 +51,5 @@ spolApp.config(['$routeProvider', '$httpProvider', '$locationProvider', '$goConn
     }]);
 
 spolApp.run(function(loginService) {
-    console.log(loginService.getLoggedInId());
+
 });

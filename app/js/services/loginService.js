@@ -1,8 +1,9 @@
 
 spolServices
-.service("loginService", function() {
+.service("loginService", function($location) {
 
 	var loggedInId = null;
+	var actualRedirect = null;
 
 	var _validLogins = [
 		{id: 1, username: 'test', password: 'test', admin: 0},
@@ -40,12 +41,20 @@ spolServices
 		return loggedInId + "" + getFingerprint();
 	};
 
+	var redirectLogin = function() {
+		if (getLoggedInId()) return;
+		actualRedirect = $location.path();
+		$location.path("/login");
+	};
+
 	var doLogin = function(username, password) {
 		for (var i = 0; i < _validLogins.length; i++) {
 			var testLogin = _validLogins[i];
 			if (testLogin.username == username && testLogin.password == password) {
 				localStorage.setItem("spolLogin", hashCode(testLogin.username+testLogin.password));
 				loggedInId = testLogin.id;
+				if (actualRedirect) $location.path(actualRedirect);
+				actualRedirect = null;
 				return true;
 			}
 		}
@@ -72,6 +81,7 @@ spolServices
 		doLogin: doLogin,
 		checkLogin: checkLogin,
 		doLogout: doLogout,
-		getLoggedInId: getLoggedInId
+		getLoggedInId: getLoggedInId,
+		redirectLogin: redirectLogin
 	};
 });
