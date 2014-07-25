@@ -33,6 +33,9 @@ spolApp.config(['$routeProvider', '$httpProvider', '$locationProvider', '$goConn
             .when('/ticket/show/:id', {
                 templateUrl: 'templates/tickets/show.html'
             })
+            .when('/login', {
+                templateUrl: 'templates/login.html'
+            })
             .otherwise({
                 redirectTo: '/tickets'
             });
@@ -46,3 +49,7 @@ spolApp.config(['$routeProvider', '$httpProvider', '$locationProvider', '$goConn
 
         $locationProvider.html5Mode(false).hashPrefix('!');
     }]);
+
+spolApp.run(function(loginService) {
+
+});
