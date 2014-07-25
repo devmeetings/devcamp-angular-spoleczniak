@@ -4,6 +4,10 @@ spolControllers.controller("loginController", function($scope, loginService) {
 						// 1 = zalogowano pomyslnie
 						// 2 = blad logowania
 
+	$scope.doLogout = function() {
+		loginService.doLogout();
+	};
+
 	$scope.doLogin = function() {
 		var username = $scope.loginUser;
 		var password = $scope.loginPassword;

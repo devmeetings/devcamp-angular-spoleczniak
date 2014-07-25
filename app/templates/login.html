@@ -1,13 +1,41 @@
-<form ng-controller="loginController">
-    <div ng-show="state==0 || state==2">
-        <input ng-model="loginUser">
-        <br/>
-        <input ng-model="loginPassword" type="password">
-        <br/>
-        <div ng-show="state==2">Błędne dane, spróbuj jeszcze raz</div>
-        <button ng-click="doLogin()">Zaloguj</button>
+<div ng-controller="loginController">
+    <div class="row">
+        <div class="col-md-12">
+            <h1>Zaloguj się</h1>
+        </div>
     </div>
-    <div ng-show="state==1">
-		Zalogowano pomyślnie!
+    <div class="row">
+        <div class="col-md-12">
+            <form class="form-horizontal">
+                <div ng-show="state==0 || state==2">
+                    <div class="form-group">
+                        <label class="col-md-3 control-label">Login</label>
+                        <div class="col-md-7">
+                            <input ng-model="loginUser">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-md-3 control-label">Hasło</label>
+                        <div class="col-md-7">
+                            <input ng-model="loginPassword" type="password">
+                        </div>
+                    </div>
+
+                    <div ng-show="state==2" class="form-group">
+                        <div class="col-md-3"></div>
+                        <div class="col-md-7">Błędne dane, spróbuj jeszcze raz</div>
+                    </div>
+
+                    <div class="form-group">
+                        <div class="col-md-10 text-right">
+                            <button ng-click="doLogin()" class="btn btn-primary">Zaloguj</button>
+                        </div>
+                    </div>
+                </div>
+                <div ng-show="state==1">
+                    Zalogowano pomyślnie!
+                </div>
+            </form>
+        </div>
     </div>
-</form>
+</div>

@@ -64,6 +64,7 @@ spolServices
 			if (testLogin.username == username && testLogin.password == password) {
 				localStorage.setItem("spolLogin", hashCode(testLogin.username+testLogin.password));
 				loggedInId = testLogin.id;
+				$rootScope.$broadcast("doLogin");
 				if (actualRedirect) $location.path(actualRedirect);
 				actualRedirect = null;
 				return true;
