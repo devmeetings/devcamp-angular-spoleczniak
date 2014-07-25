@@ -1,6 +1,6 @@
 
 spolServices
-.factory("loginService", function($location) {
+.factory("loginService", function($location, $rootScope) {
 
 	var loggedInId = null;
 	var actualRedirect = null;
