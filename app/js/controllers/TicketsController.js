@@ -29,8 +29,8 @@ spolControllers.controller('TicketAddController', ['$scope', '$rootScope', 'Tick
     }]);
 
 
-spolControllers.controller('TicketShowController', ['$scope', '$rootScope', 'Tickets', '$routeParams',
-    function ($scope, $rootScope, Tickets, $routeParams) {
+spolControllers.controller('TicketShowController', ['$scope', '$rootScope', 'Tickets', '$routeParams', 'loginService',
+    function ($scope, $rootScope, Tickets, $routeParams, loginService) {
         'use strict';
 
         $rootScope.menu_active = 'tickets';
@@ -38,6 +38,6 @@ spolControllers.controller('TicketShowController', ['$scope', '$rootScope', 'Tic
         // utworzenie pustego obiektu nowego zgłoszenia
         $scope.ticket = Tickets.getTicket($routeParams.id);
 
-
+        $scope.ls = loginService;
 
     }]);

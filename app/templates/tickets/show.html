@@ -27,6 +27,12 @@
                         </div>
                     </div>
                     <div class="form-group">
+                        <label class="col-md-3 control-label">Zgłoszone przez</label>
+                        <div class="col-md-7 form-control-static">
+                            {{ ls.getUsernameById(item.userid) }}
+                        </div>
+                    </div>
+                    <div class="form-group">
                         <div class="col-md-10 text-right">
                             <a href="/#!/tickets" class="btn btn-link">powrót do listy</a>
                         </div>
