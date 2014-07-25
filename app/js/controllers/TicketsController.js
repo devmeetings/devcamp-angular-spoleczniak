@@ -7,9 +7,13 @@ spolControllers.controller('TicketsListController', ['$scope', '$rootScope', 'Ti
 
     }]);
 
-spolControllers.controller('TicketAddController', ['$scope', '$rootScope', 'Tickets',
-    function ($scope, $rootScope, Tickets) {
+spolControllers.controller('TicketAddController', ['$scope', '$rootScope', 'Tickets', 'loginService',
+    function ($scope, $rootScope, Tickets, loginService) {
         'use strict';
+
+        // sprawdzenie czy jest zalogowany user
+console.log("sprawdzam");
+        loginService.redirectLogin();
 
         // utworzenie pustego obiektu nowego zgłoszenia
         $scope.new_ticket = Tickets.getBlankTicket();

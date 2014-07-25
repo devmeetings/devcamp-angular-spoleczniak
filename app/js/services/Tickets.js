@@ -1,4 +1,4 @@
-spolServices.factory('Tickets', ['$goKey', '$goQuery', '$location', function ($goKey, $goQuery, $location) {
+spolServices.factory('Tickets', ['$goKey', '$goQuery', '$location', 'loginService', function ($goKey, $goQuery, $location, loginService) {
 
     var new_ticket;
 
@@ -7,7 +7,8 @@ spolServices.factory('Tickets', ['$goKey', '$goQuery', '$location', function ($g
         title: '',        // tytuł zgłoszenia
         description: '',  // opis zgłoszenia
         place: '',        // miejsce zgłoszenia
-        status: 1        // status zgłoszenia
+        status: 1,        // status zgłoszenia
+        userid: 0         // id dodającego usera
     };
 
     return {
@@ -21,8 +22,15 @@ spolServices.factory('Tickets', ['$goKey', '$goQuery', '$location', function ($g
         },
 
         addTicket: function (data) {
+            var userid = loginService.getLoggedInId();
+            if (!userid) {
+                $location.path('/tickets');
+                return;
+            }
+            
             this.getTickets();
             data.id = new Date().getTime();
+            data.userid = userid;
             this.tickets.$add(data).then(function () {
                 $location.path('/tickets');
             });
