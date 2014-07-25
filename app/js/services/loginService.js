@@ -93,6 +93,7 @@ spolServices
 		checkLogin: checkLogin,
 		doLogout: doLogout,
 		getLoggedInId: getLoggedInId,
-		redirectLogin: redirectLogin
+		redirectLogin: redirectLogin,
+        getUsernameById: getUsernameById
 	};
 });
