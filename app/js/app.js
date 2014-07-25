@@ -6,7 +6,7 @@ var spolApp, spolFilters, spolControllers, spolServices, spolDirectives;
 /**
  * Create application modules.
  */
-spolApp = angular.module('app', ['app.filters', 'app.controllers', 'app.services', 'app.directives','ngRoute']);
+spolApp = angular.module('app', ['app.filters', 'app.controllers', 'app.services', 'app.directives', 'ngRoute', 'goangular']);
 spolFilters = angular.module('app.filters', []);
 spolControllers = angular.module('app.controllers', []);
 spolServices = angular.module('app.services', []);
@@ -16,10 +16,11 @@ spolDirectives = angular.module('app.directives', []);
 /**
  * Setting router provider config.
  */
-spolApp.config(['$routeProvider', '$httpProvider', '$locationProvider',
-    function ($routeProvider, $httpProvider, $locationProvider) {
-
+spolApp.config(['$routeProvider', '$httpProvider', '$locationProvider', '$goConnectionProvider',
+    function ($routeProvider, $httpProvider, $locationProvider, $goConnectionProvider) {
         'use strict';
+
+        $goConnectionProvider.$set('https://goinstant.net/d7a5ec404717/spoleczniak');
 
         $routeProvider
             // homepage url - searcher
