@@ -91,7 +91,7 @@ spolServices
 				localStorage.setItem("spolLogin", hashCode(testLogin.username+testLogin.password));
 				loggedInId = testLogin.id;
 				$rootScope.$broadcast("doLogin");
-				if (actualRedirect) $location.path(actualRedirect); else $location.path("/");
+				if (actualRedirect) $location.path(actualRedirect); else $location.path("/tickets");
 				actualRedirect = null;
 				return true;
 			}
