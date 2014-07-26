@@ -1,5 +1,5 @@
-spolControllers.controller("chatController", ["$scope", "Chat", "loginService", "$rootScope",
-    function($scope, Chat, loginService, $rootScope) {
+spolControllers.controller("chatController", ["$scope", "Chat", "loginService", "$rootScope", "$timeout",
+    function($scope, Chat, loginService, $rootScope, $timeout) {
     	loginService.redirectLogin();
         /*$scope.chatItems = [{
         	user: "admin",
@@ -29,7 +29,17 @@ spolControllers.controller("chatController", ["$scope", "Chat", "loginService", 
         $scope.sendMessage = function() {
         	Chat.addMessage($scope.newMessage);
         	$scope.newMessage = Chat.getBlankMessage();
+
         };
 
+        $scope.$watch('chatItems', function () {
+            $timeout(function () {
+                var wtf    = $('#chat_container');
+                var height = wtf[0].scrollHeight;
+                wtf.animate({
+                    scrollTop: height
+                }, 200);
+            }, 200);
+        }, true);
     }
 ]);
