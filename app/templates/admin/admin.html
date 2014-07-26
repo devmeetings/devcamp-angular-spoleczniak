@@ -1,0 +1,25 @@
+<div data-ng-controller="AdminController">
+    <div class="row">
+        <div class="col-xs-12" ng-repeat="(key, ticket) in tickets">
+            <div class="panel panel-default">
+                <div class="panel-heading clearfix">
+
+                    <h3 class="panel-title"><a href="/#!/tickets/show/{{ ticket.id }}">{{ ticket.title}}</a></h3>
+
+                </div>
+                <div class="panel-body">
+                    <p>{{ ticket.description }}</p>
+                </div>
+                <div class="panel-footer clearfix">
+                    <div class="btn-group btn-group-sm">
+                        <button type="button" ng-click="setStatus(key, 1)" class="btn btn-danger">Nowy&nbsp;<i ng-class="{'glyphicon-ok-circle': (ticket.status == 1 || !ticket.status)}" class="glyphicon"></i></button>
+                        <button type="button" ng-click="setStatus(key, 2)" class="btn btn-warning">Zaakceptowany&nbsp;<i  ng-class="{'glyphicon-ok-circle':(ticket.status == 2)}" class="glyphicon"></i></button>
+                        <button type="button" ng-click="setStatus(key, 3)" class="btn btn-info">Rozwiązany&nbsp;<i ng-class="{'glyphicon-ok-circle':(ticket.status == 3)}" class="glyphicon"></i></button>
+                        <button type="button" ng-click="setStatus(key, 4)" class="btn btn-success">zamknięty&nbsp;<i ng-class="{'glyphicon-ok-circle':(ticket.status == 4)}" class="glyphicon"></i></button>
+                    </div>
+                    <button type="button" class="btn btn-sm btn-default pull-right">Szczegóły&nbsp;<i class="glyphicon glyphicon-save"></i></button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
