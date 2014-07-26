@@ -35,9 +35,21 @@ spolControllers.controller('TicketShowController', ['$scope', '$rootScope', 'Tic
 
         $rootScope.menu_active = 'tickets';
 
+        $scope.isAdmin = loginService.isAdmin(loginService.getLoggedInId());
+
+        $scope.changeStatus = function(e, id, status){
+            e.preventDefault();
+            if(!$scope.isAdmin){
+                return;
+            }
+//            console.log($scope.ticket.$$index[0]);
+            var key = $scope.ticket.$$index[0];
+            $scope.tickets.$key(key + '/status').$set(status);
+        }
+
         // utworzenie pustego obiektu nowego zgłoszenia
         $scope.ticket = Tickets.getTicket($routeParams.id);
-
+        $scope.tickets = Tickets.getTickets();
         $scope.ls = loginService;
 
     }]);
