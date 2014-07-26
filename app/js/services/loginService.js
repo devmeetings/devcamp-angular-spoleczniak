@@ -37,6 +37,7 @@ spolServices
 	};
 
 	var isAdmin = function(id) {
+		if ('undefined' === typeof(id) || !id) return false;
 		var uid = id.split(":")[0];
 		for (var i = 0; i < _validLogins.length; i++) {
 			var testLogin = _validLogins[i];
@@ -48,6 +49,7 @@ spolServices
 	};
 
 	var getUsernameById = function(id) {
+		if ('undefined' === typeof(id) || !id) return null;
 		var uid = id.split(":")[0];
 		for (var i = 0; i < _validLogins.length; i++) {
 			var testLogin = _validLogins[i];
