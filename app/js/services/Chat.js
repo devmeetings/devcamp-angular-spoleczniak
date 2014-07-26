@@ -33,7 +33,7 @@ spolServices
                 this.chat.$add(data);
             },
 
-            getBlankComment: function () {
+            getBlankMessage: function () {
                 return Object.create(new_message);
             }
         }
