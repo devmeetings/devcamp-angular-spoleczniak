@@ -7,4 +7,5 @@ spolControllers.controller("indexController", function($scope, loginService, $ro
 		$rootScope.$on("doLogin", function() {
 			$scope.loggedin = 1;
 		});
+		$scope.ls = loginService;
 	});
