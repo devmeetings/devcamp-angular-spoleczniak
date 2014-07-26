@@ -33,6 +33,9 @@ spolApp.config(['$routeProvider', '$httpProvider', '$locationProvider', '$goConn
             .when('/ticket/show/:id', {
                 templateUrl: 'templates/tickets/show.html'
             })
+            .when('/login', {
+                templateUrl: 'templates/login.html'
+            })
             .when('/admin', {
                 templateUrl: 'templates/admin/admin.html'
             })
