@@ -1,0 +1,10 @@
+.animated-message {
+	opacity: 1;
+	-webkit-transition: opacity .5s ease-in;
+	-moz-transition: opacity .5s ease-in;
+	transition: opacity .5s ease-in;
+}
+
+.animated-message.ng-leave {
+	opacity: 0;
+}
