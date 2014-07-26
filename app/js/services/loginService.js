@@ -6,9 +6,11 @@ spolServices
 	var actualRedirect = null;
 
 	var _validLogins = [
-		{id: 1, username: 'test', password: 'test', admin: 0},
-		{id: 2, username: 'test2', password: 'test2', admin: 0},
-		{id: 3, username: 'admin', password: 'admin', admin: 1}
+		{id: 1, username: 'gmisiolek', password: 'test', admin: 1},
+		{id: 2, username: 'kturczynski', password: 'test', admin: 0},
+		{id: 3, username: 'hub', password: 'test', admin: 1},
+		{id: 4, username: 'user', password: 'test', admin: 0},
+		{id: 5, username: 'stefan', password: 'test', admin: 0}
 	];
 
 	var hashCode = function(str) {
