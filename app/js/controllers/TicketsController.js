@@ -1,7 +1,7 @@
-spolControllers.controller('TicketsListController', ['$scope', '$rootScope', 'Tickets',
-    function ($scope, $rootScope, Tickets) {
+spolControllers.controller('TicketsListController', ['$scope', '$rootScope', 'Tickets', 'loginService',
+    function ($scope, $rootScope, Tickets, loginService) {
         'use strict';
-
+        loginService.redirectLogin();
         $rootScope.menu_active = 'tickets';
 
         // pobieranie listy zgłoszeń
@@ -12,9 +12,9 @@ spolControllers.controller('TicketsListController', ['$scope', '$rootScope', 'Ti
 spolControllers.controller('TicketAddController', ['$scope', '$rootScope', 'Tickets', 'loginService',
     function ($scope, $rootScope, Tickets, loginService) {
         'use strict';
-
-        // sprawdzenie czy jest zalogowany user
         loginService.redirectLogin();
+        // sprawdzenie czy jest zalogowany user
+
         $rootScope.menu_active = 'add_ticket';
 
         // utworzenie pustego obiektu nowego zgłoszenia
@@ -32,7 +32,7 @@ spolControllers.controller('TicketAddController', ['$scope', '$rootScope', 'Tick
 spolControllers.controller('TicketShowController', ['$scope', '$rootScope', 'Tickets', '$routeParams', 'loginService',
     function ($scope, $rootScope, Tickets, $routeParams, loginService) {
         'use strict';
-
+        loginService.redirectLogin();
         $rootScope.menu_active = 'tickets';
 
         $scope.isAdmin = loginService.isAdmin(loginService.getLoggedInId());

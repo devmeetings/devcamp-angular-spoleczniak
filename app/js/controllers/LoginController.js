@@ -1,9 +1,9 @@
-spolControllers.controller("loginController", function($scope, loginService) {
+spolControllers.controller("loginController", function($scope, loginService, $rootScope) {
 	
 	$scope.state = 0; 	// 0 = pokaz formularz
 						// 1 = zalogowano pomyslnie
 						// 2 = blad logowania
-
+    $rootScope.menu_active = '';
 	$scope.doLogout = function() {
 		loginService.doLogout();
 	};

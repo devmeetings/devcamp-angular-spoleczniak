@@ -43,7 +43,7 @@ spolApp.config(['$routeProvider', '$httpProvider', '$locationProvider', '$goConn
                 templateUrl: 'templates/chat/chat.html'
             })
             .otherwise({
-                redirectTo: '/tickets'
+                redirectTo: '/login'
             });
 
         // change default content-type for $http.post request
