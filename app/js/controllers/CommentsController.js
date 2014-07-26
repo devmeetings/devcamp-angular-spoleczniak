@@ -19,6 +19,7 @@ spolControllers.controller('CommentsAddController', ['$scope', '$rootScope', '$r
 	    	$event.preventDefault();	    	
 	    	$scope.newComment.ticketId = parseInt($routeParams.id, 10);
 	    	Comments.addComment($scope.newComment);
+            $scope.newComment = Comments.getBlankComment();
 	    };
 
 	}
