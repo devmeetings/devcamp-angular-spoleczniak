@@ -6,6 +6,14 @@
             </div>
         </div>
         <div class="row">
+            <div class="col-xs-12">
+                <button  ng-click="changeStatus($event, item.idticket, 1)" ng-class="{'btn-danger': item.status == 1, 'btn-default': item.status != 1, 'disabled': !isAdmin}" class="btn"><span ng-class="{'text-danger':item.status != 1}" class="">Nowy</span></button>
+                <button  ng-click="changeStatus($event, item.idticket, 2)" ng-class="{'btn-warning': item.status == 2, 'btn-default': item.status != 2, 'disabled': !isAdmin}" class="btn btn-default"><span ng-class="{'text-warning':item.status != 2}" class="">Zaakceptowany</span></button>
+                <button  ng-click="changeStatus($event, item.idticket, 3)" ng-class="{'btn-info': item.status == 3, 'btn-default': item.status != 3, 'disabled': !isAdmin}" class="btn btn-default"><span ng-class="{'text-info':item.status != 3}" class="">Rozwiązany</span></button>
+                <button  ng-click="changeStatus($event, item.idticket, 4)" ng-class="{'btn-success': item.status == 4, 'btn-default': item.status != 4, 'disabled': !isAdmin}" class="btn btn-default"><span ng-class="{'text-success':item.status != 4}" class="">zamknięty</span></button>
+            </div>
+        </div>
+        <div class="row">
             <div class="col-md-12">
                 <form class="form-horizontal">
                     <div class="form-group">
