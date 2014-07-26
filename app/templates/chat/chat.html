@@ -1,8 +1,8 @@
 <div ng-controller="chatController">
-	<div ng-if="!chatIsLoaded">
-		Ładowanie...
-	</div>
     <div class="chatContainer" id="chat_container">
+        <div ng-if="!chatIsLoaded">
+            Ładowanie...
+        </div>
         <div class="row" ng-repeat="chatItem in chatItems">
             <div class="col-md-11">
                 <div class="panel" ng-class="{adminMessage: chatItem.isAdmin}">
