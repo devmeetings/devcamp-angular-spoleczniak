@@ -10,6 +10,15 @@
 }
 
 .adminMessage {
-	font-weight: bold;
+	
 	color: red;
+}
+
+.chatDate {
+	font-size:10px;
+	color: #888;
+}
+
+.chatUser {
+	font-weight: bold;
 }

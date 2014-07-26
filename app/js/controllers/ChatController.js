@@ -1,5 +1,6 @@
 spolControllers.controller("chatController", ["$scope", "Chat", "loginService",
     function($scope, Chat, loginService) {
+    	loginService.redirectLogin();
         /*$scope.chatItems = [{
         	user: "admin",
         	adminMessage: 1,
@@ -22,7 +23,7 @@ spolControllers.controller("chatController", ["$scope", "Chat", "loginService",
         $scope.chatItems.$on("ready", function() {
         	$scope.chatIsLoaded = true;
         });
-        
+
         $scope.newMessage = Chat.getBlankMessage();
         $scope.sendMessage = function() {
         	Chat.addMessage($scope.newMessage);
