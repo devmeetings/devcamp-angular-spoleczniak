@@ -1,8 +1,8 @@
 <div ng-controller="chatController">
     <div class="row" ng-repeat="chatItem in chatItems">
         <div class="col-md-6">
-            <div class="panel">
-                <b>{{chatItem.iduser}}:</b> {{chatItem.text}}
+            <div class="panel" ng-class="{adminMessage: chatItem.isAdmin}">
+                <b>{{ls.getUsernameById(chatItem.iduser)}} ({{chatItem.iduser.split(":")[1]}}):</b> {{chatItem.text}}
             </div>
         </div>
     </div>

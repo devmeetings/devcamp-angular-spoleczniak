@@ -8,3 +8,8 @@
 .animated-message.ng-leave {
 	opacity: 0;
 }
+
+.adminMessage {
+	font-weight: bold;
+	color: red;
+}
