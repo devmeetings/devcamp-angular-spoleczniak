@@ -16,8 +16,13 @@ spolControllers.controller("chatController", ["$scope", "Chat", "loginService",
         	message: "pstro"
         }];*/
         $scope.ls = loginService;
-         
         $scope.chatItems = Chat.getMessages();
+        $scope.chatIsLoaded = false;
+
+        $scope.chatItems.$on("ready", function() {
+        	$scope.chatIsLoaded = true;
+        });
+        
         $scope.newMessage = Chat.getBlankMessage();
         $scope.sendMessage = function() {
         	Chat.addMessage($scope.newMessage);

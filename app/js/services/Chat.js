@@ -23,7 +23,6 @@ spolServices
 
             getMessages: function () {
                 var id = loginService.getLoggedInId();
-                console.log(id, typeof id);
                 this.chat = $goKey('chat');
                 this.chat.$sync();
 
