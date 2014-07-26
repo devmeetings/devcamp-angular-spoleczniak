@@ -37,26 +37,33 @@ spolServices
 	};
 
 	var isAdmin = function(id) {
-		if ('undefined' === typeof(id) || !id) return false;
+        if(id == undefined || id == null){
+            return false;
+        }
 		var uid = id.split(":")[0];
+        var testLogin;
 		for (var i = 0; i < _validLogins.length; i++) {
 			var testLogin = _validLogins[i];
-			if (testLogin.admin == uid) {
-				return true;
+			if (testLogin.id == uid) {
+				break;
 			}
 		}
+        if(testLogin != undefined && testLogin.admin == 1){
+            return true;
+        }
 		return false;
 	};
 
 	var getUsernameById = function(id) {
-		if ('undefined' === typeof(id) || !id) return null;
-		var uid = id.split(":")[0];
-		for (var i = 0; i < _validLogins.length; i++) {
-			var testLogin = _validLogins[i];
-			if (testLogin.id == uid) {
-				return testLogin.username;
-			}
-		}
+        if(id != null && id != undefined){
+            var uid = id.split(":")[0];
+            for (var i = 0; i < _validLogins.length; i++) {
+                var testLogin = _validLogins[i];
+                if (testLogin.id == uid) {
+                    return testLogin.username;
+                }
+            }
+        }
 		return null;
 	};
 
