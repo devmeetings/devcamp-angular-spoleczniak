@@ -39,6 +39,9 @@ spolApp.config(['$routeProvider', '$httpProvider', '$locationProvider', '$goConn
             .when('/admin', {
                 templateUrl: 'templates/admin/admin.html'
             })
+            .when('/chat', {
+                templateUrl: 'templates/chat/chat.html'
+            })
             .otherwise({
                 redirectTo: '/tickets'
             });
