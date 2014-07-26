@@ -1,6 +1,6 @@
 
 spolServices
-.factory("loginService", function($location) {
+.factory("loginService", function($location, $rootScope) {
 
 	var loggedInId = null;
 	var actualRedirect = null;
@@ -36,6 +36,17 @@ spolServices
 		return null;
 	};
 
+	var isAdmin = function(id) {
+		var uid = id.split(":")[0];
+		for (var i = 0; i < _validLogins.length; i++) {
+			var testLogin = _validLogins[i];
+			if (testLogin.admin == uid) {
+				return true;
+			}
+		}
+		return false;
+	};
+
 	var getUsernameById = function(id) {
 		var uid = id.split(":")[0];
 		for (var i = 0; i < _validLogins.length; i++) {
@@ -52,6 +63,10 @@ spolServices
 		return loggedInId + ":" + getFingerprint();
 	};
 
+	var getUsernameLogged = function() {
+		return getUsernameById(getLoggedInId());
+	};
+
 	var redirectLogin = function() {
 		if (getLoggedInId()) return;
 		actualRedirect = $location.path();
@@ -65,7 +80,7 @@ spolServices
 				localStorage.setItem("spolLogin", hashCode(testLogin.username+testLogin.password));
 				loggedInId = testLogin.id;
 				$rootScope.$broadcast("doLogin");
-				if (actualRedirect) $location.path(actualRedirect);
+				if (actualRedirect) $location.path(actualRedirect); else $location.path("/");
 				actualRedirect = null;
 				return true;
 			}
@@ -95,6 +110,8 @@ spolServices
 		doLogout: doLogout,
 		getLoggedInId: getLoggedInId,
 		redirectLogin: redirectLogin,
-        getUsernameById: getUsernameById
+        getUsernameById: getUsernameById,
+        getUsernameLogged: getUsernameLogged,
+        isAdmin: isAdmin
 	};
 });
