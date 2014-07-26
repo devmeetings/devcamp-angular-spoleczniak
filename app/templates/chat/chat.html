@@ -14,8 +14,9 @@
     </div>
     <form>
         <div class="form-group">
-            <div class="col-md-8">
+            <div class="col-md-8" data-ng-class="show_error && 'has-error'">
                 <input ng-model="newMessage.text" placeholder="Wpisz wiadomość..." type="text" class="form-control"/>
+                <span data-ng-if="show_error" class="help-block">{{ message_error }}</span>
             </div>
             <div class="col-md-4">
                 <button ng-click="sendMessage()" class="btn btn-primary">Wyślij</button>
