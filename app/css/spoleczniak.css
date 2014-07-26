@@ -24,7 +24,9 @@
 }
 
 .chatContainer {
-    max-height: 400px;
+    height: 400px;
+    border: 1px solid #ccc;
+    padding: 10px 0px 0px 10px;
     overflow-y: scroll;
     overflow-x: hidden;
 }
