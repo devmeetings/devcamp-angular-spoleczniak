@@ -34,7 +34,7 @@
         </div>
         <div class="navbar-collapse collapse">
             <ul class="nav navbar-nav navbar-right">
-                <li><a href="#" ng-click="logout($event)" ng-show="loggedin">Wyloguj</a>
+                <li><a href="#" ng-click="logout($event)" ng-show="loggedin">Wyloguj ({{ls.getUsernameLogged()}})</a>
                 </li>
                 <li><a href="#!/login" ng-hide="loggedin">Zaloguj</a>
                 </li>
