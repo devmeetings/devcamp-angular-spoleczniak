@@ -6,7 +6,7 @@ var spolApp, spolFilters, spolControllers, spolServices, spolDirectives;
 /**
  * Create application modules.
  */
-spolApp = angular.module('app', ['app.filters', 'app.controllers', 'app.services', 'app.directives', 'ngRoute', 'goangular']);
+spolApp = angular.module('app', ['app.filters', 'app.controllers', 'app.services', 'app.directives', 'ngRoute', 'goangular', 'ngAnimate']);
 spolFilters = angular.module('app.filters', []);
 spolControllers = angular.module('app.controllers', []);
 spolServices = angular.module('app.services', []);

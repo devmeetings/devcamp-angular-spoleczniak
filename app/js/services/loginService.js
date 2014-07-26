@@ -100,6 +100,7 @@ spolServices
 	var doLogout = function() {
 		loggedInId = null;
 		localStorage.removeItem("spolLogin");
+		$rootScope.$broadcast("flashMessage", "Wylogowano pomyślnie");
 		$location.path("/");
 	};
 
