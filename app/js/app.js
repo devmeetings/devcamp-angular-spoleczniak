@@ -36,6 +36,9 @@ spolApp.config(['$routeProvider', '$httpProvider', '$locationProvider', '$goConn
             .when('/login', {
                 templateUrl: 'templates/login.html'
             })
+            .when('/addComment', {
+                templateUrl: 'templates/comments/addComment.html'
+            })
             .otherwise({
                 redirectTo: '/tickets'
             });

@@ -42,3 +42,35 @@
         </div>
     </div>
 </div>
+
+<!-- komentarze -->
+<div class="container-fluid" data-ng-controller="CommentsShowController">
+  <div class="row" data-ng-repeat="ticketComments in comments">
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        {{ ticketComments.author }}
+        <span class="glyphicon glyphicon-minus pull-right"></span>
+        <span class="badge pull-right">0</span>
+        <span class="glyphicon glyphicon-plus pull-right"></span>
+      </div>
+      <div class="panel-body">
+        {{ ticketComments.comment }}
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- dodawanie komentarzy -->
+<form class="form-horizontal" role="form" data-ng-controller="CommentsAddController">          
+    <div class="form-group">
+    <label for="comment" class="col-sm-2 control-label">Komentarz</label>
+        <div class="col-sm-10">
+            <textarea class="form-control" rows="3" id="comment" data-ng-model="newComment.comment"></textarea>
+        </div>
+    </div>
+    <div class="form-group">
+    <div class="col-sm-offset-2 col-sm-10">
+        <button type="submit" data-ng-click="addComment($event)" class="btn btn-default">Dodaj komentarz</button>
+    </div>
+    </div>
+</form>
