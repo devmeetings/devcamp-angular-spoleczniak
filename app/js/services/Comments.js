@@ -25,7 +25,6 @@ spolServices
         },
 
         addComment: function (data) {
-            console.log(data);
             var userId = loginService.getLoggedInId();
 
             this.comments = this.getComments();
@@ -34,8 +33,6 @@ spolServices
             data.author = loginService.getUsernameById(userId);
 
             this.comments.$add(data);
-
-            return newComment;
         },
 
         getBlankComment: function () {
