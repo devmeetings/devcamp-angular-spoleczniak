@@ -3,7 +3,7 @@
 		Ładowanie...
 	</div>
     <div class="row" ng-repeat="chatItem in chatItems">
-        <div class="col-md-6">
+        <div class="col-md-12">
             <div class="panel" ng-class="{adminMessage: chatItem.isAdmin}">
                 <span class="chatUser">{{ls.getUsernameById(chatItem.iduser)}}</span> <span class="chatDate">{{chatItem.date}}</span><br/>
                  {{chatItem.text}}
@@ -11,7 +11,13 @@
         </div>
     </div>
     <form>
-		<input ng-model="newMessage.text" placeholder="Wpisz wiadomość..." type="text"/>
-		<button ng-click="sendMessage()" class="btn btn-primary">Wyślij</button>
+        <div class="form-group">
+            <div class="col-md-8">
+                <input ng-model="newMessage.text" placeholder="Wpisz wiadomość..." type="text" class="form-control"/>
+            </div>
+            <div class="col-md-4">
+                <button ng-click="sendMessage()" class="btn btn-primary">Wyślij</button>
+            </div>
+        </div>
     </form>
 </div>

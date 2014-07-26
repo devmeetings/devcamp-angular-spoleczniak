@@ -1,5 +1,5 @@
-spolControllers.controller("chatController", ["$scope", "Chat", "loginService",
-    function($scope, Chat, loginService) {
+spolControllers.controller("chatController", ["$scope", "Chat", "loginService", "$rootScope",
+    function($scope, Chat, loginService, $rootScope) {
     	loginService.redirectLogin();
         /*$scope.chatItems = [{
         	user: "admin",
@@ -16,6 +16,7 @@ spolControllers.controller("chatController", ["$scope", "Chat", "loginService",
         	adminMessage: 1,
         	message: "pstro"
         }];*/
+        $rootScope.menu_active = "chat";
         $scope.ls = loginService;
         $scope.chatItems = Chat.getMessages();
         $scope.chatIsLoaded = false;
