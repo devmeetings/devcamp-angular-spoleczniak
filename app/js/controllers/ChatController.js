@@ -27,6 +27,7 @@ spolControllers.controller("chatController", ["$scope", "Chat", "loginService", 
 
         $scope.newMessage = Chat.getBlankMessage();
         $scope.sendMessage = function() {
+        	if ($scope.newMessage.text.length < 5) return;
         	Chat.addMessage($scope.newMessage);
         	$scope.newMessage = Chat.getBlankMessage();
 
